@@ -1,26 +1,28 @@
 """
 journals/views
 """
-from rest_framework import generics
+from django.contrib.auth import get_user_model
+from rest_framework import viewsets
+from rest_framework.permissions import IsAdminUser
 
 from .models import JournalEntry
 from .permissions import IsAuthOrReadOnly
-from .serializers import JournalEntrySerializer
+from .serializers import JournalEntrySerializer, UserSerializer
 
 
-class JournalEntryList(generics.ListCreateAPIView):
+class JournalEntryViewSet(viewsets.ModelViewSet):
     """
-    JournalEntryList
-    """
-    permission_classes = (IsAuthOrReadOnly,)
-    queryset = JournalEntry.objects.all()
-    serializer_class = JournalEntrySerializer
-
-
-class JournalEntryDetail(generics.RetrieveUpdateDestroyAPIView):
-    """
-    JournalEntryDetail
+    JournalEntryViewSet
     """
     permission_classes = (IsAuthOrReadOnly,)
     queryset = JournalEntry.objects.all()
     serializer_class = JournalEntrySerializer
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    UserViewSet
+    """
+    permission_classes = [IsAdminUser]
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer

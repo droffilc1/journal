@@ -1,11 +1,12 @@
 """
 journals/urls
 """
-from django.urls import path
+from rest_framework.routers import SimpleRouter
 
-from .views import JournalEntryList, JournalEntryDetail
+from .views import JournalEntryViewSet, UserViewSet
 
-urlpatterns = [
-    path('<int:pk>/', JournalEntryDetail.as_view(), name='journal_detail'),
-    path('', JournalEntryList.as_view(), name='journal_list'),
-]
+router = SimpleRouter()
+router.register('users', UserViewSet, basename='users')
+router.register('', JournalEntryViewSet, basename='journals')
+
+urlpatterns = router.urls

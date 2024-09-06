@@ -1,6 +1,7 @@
 """
 journals/serializers
 """
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from .models import JournalEntry
@@ -20,3 +21,12 @@ class JournalEntrySerializer(serializers.ModelSerializer):
             'created_at',
             'is_draft',
         )
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """
+    UserSerializer
+    """
+    class Meta:
+        model = get_user_model()
+        fields = ('id', 'username',)
