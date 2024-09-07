@@ -38,38 +38,6 @@
    - **Create Categories:** Users can categorize their journal entries (e.g., Work, Personal, Ideas).
    - **Assign Entries to Categories:** Users can assign entries to specific categories for better organization.
 
-#### **Models**
-
-1. **User Model**
-
-   - **Attributes:**
-     - `username`: User’s name.
-     - `email`: User’s email address.
-     - `password`: User’s hashed password.
-
-2. **JournalEntry Model**
-
-   - **Attributes:**
-     - `user`: Foreign key linking the entry to a user.
-     - `title`: Title of the journal entry.
-     - `content`: The main content of the entry.
-     - `created_at`: Timestamp of when the entry was created.
-     - `updated_at`: Timestamp of the last update.
-     - `is_draft`: Boolean indicating whether the entry is a draft or published.
-
-3. **Tag Model**
-
-   - **Attributes:**
-     - `name`: The name of the tag.
-     - `entries`: Many-to-many relationship with `JournalEntry` to allow multiple tags per entry.
-
-4. **Category Model**
-
-   - **Attributes:**
-     - `name`: The name of the category.
-     - `user`: Foreign key linking the category to a user.
-     - `entries`: One-to-many relationship with `JournalEntry` to categorize entries.
-
 #### **APIs to Implement**
 
 1. **User Authentication**
