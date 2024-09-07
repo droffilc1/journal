@@ -2,7 +2,7 @@
 
 #### **Project Overview**
 
-- **Purpose:** Build an API that allows users to create, manage, and organize their personal journal entries. The API will support basic CRUD operations, authentication, and tagging of entries.
+- **Purpose:** An API that allows users to create, manage, and organize their personal journal entries. The API will support basic CRUD operations, authentication, and tagging of entries.
 
 #### **Core Features**
 
@@ -42,28 +42,27 @@
 
 1. **User Authentication**
 
-   - **Register:** POST `/api/register/`
-   - **Login:** POST `/api/login/`
-   - **Token Authentication:** Use Django Rest Framework’s token authentication.
+   - **Register:** POST `/api/v1/dj-rest-auth/register/`
+   - **Login:** POST `/api/v1/dj-rest-auth/login/`
 
 2. **Journal Entries**
 
-   - **Create Entry:** POST `/api/entries/`
-   - **List Entries:** GET `/api/entries/`
-   - **Retrieve Entry:** GET `/api/entries/{id}/`
-   - **Update Entry:** PUT `/api/entries/{id}/`
-   - **Delete Entry:** DELETE `/api/entries/{id}/`
+   - **Create Entry:** POST `/api/v1/entries/`
+   - **List Entries:** GET `/api/v1/entries/`
+   - **Retrieve Entry:** GET `/api/v1/entries/{id}/`
+   - **Update Entry:** PUT `/api/v1/entries/{id}/`
+   - **Delete Entry:** DELETE `/api/v1/entries/{id}/`
 
 3. **Tags**
 
-   - **List Tags:** GET `/api/tags/`
-   - **Filter Entries by Tag:** GET `/api/entries/?tag={tag_name}`
+   - **List Tags:** GET `/api/v1/tags/`
+   - **Filter Entries by Tag:** GET `/api/v1/entries/?tag={tag_name}`
 
 4. **Categories**
 
-   - **List Categories:** GET `/api/categories/`
-   - **Assign Category to Entry:** PATCH `/api/entries/{id}/category/`
+   - **List Categories:** GET `/api/v1/categories/`
+   - **Assign Category to Entry:** PATCH `/api/v1/entries/{id}/category/`
 
 5. **Search**
 
-   - **Search Entries:** GET `/api/entries/search/?q={query}`
+   - **Search Entries:** GET `/api/v1/entries/search/?q={query}`
