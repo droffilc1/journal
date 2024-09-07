@@ -47,22 +47,22 @@
 
 2. **Journal Entries**
 
-   - **Create Entry:** POST `/api/v1/entries/`
-   - **List Entries:** GET `/api/v1/entries/`
-   - **Retrieve Entry:** GET `/api/v1/entries/{id}/`
-   - **Update Entry:** PUT `/api/v1/entries/{id}/`
-   - **Delete Entry:** DELETE `/api/v1/entries/{id}/`
+   - **Create Entry:** POST `/api/entries/`
+   - **List Entries:** GET `/api/entries/`
+   - **Retrieve Entry:** GET `/api/entries/{id}/`
+   - **Update Entry:** PUT `/api/entries/{id}/`
+   - **Delete Entry:** DELETE `/api/entries/{id}/`
 
 3. **Tags**
 
-   - **List Tags:** GET `/api/v1/tags/`
-   - **Filter Entries by Tag:** GET `/api/v1/entries/?tag={tag_name}`
+   - **List Tags:** GET `/api/tags/`
+   - **Filter Entries by Tag:** GET `/api/entries/?tag={tag_name}`
 
 4. **Categories**
 
-   - **List Categories:** GET `/api/v1/categories/`
-   - **Assign Category to Entry:** PATCH `/api/v1/entries/{id}/category/`
+   - **List Categories:** GET `/api/categories/`
+   - **Assign Category to Entry:** PATCH `/api/entries/{id}/category/`
 
 5. **Search**
 
-   - **Search Entries:** GET `/api/v1/entries/search/?q={query}`
+   - **Search Entries:** GET `/api/entries/search/?q={query}`
