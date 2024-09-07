@@ -4,7 +4,7 @@ Tests
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 
-from .models import JournalEntry
+from .models import JournalEntry, Tag
 
 
 class JournalTests(TestCase):
@@ -30,3 +30,18 @@ class JournalTests(TestCase):
         self.assertEqual(self.journal.title, 'A good title')
         self.assertEqual(self.journal.content, 'Nice content')
         self.assertEqual(str(self.journal), 'A good title')
+
+
+class TagTests(TestCase):
+    """
+    TagTests
+    """
+    @classmethod
+    def setUpTestData(cls):
+        cls.tag = Tag.objects.create(name='Test Tag')
+
+    def test_tag_model(self):
+        self.assertEqual(self.tag.name, 'Test Tag')
+        self.assertEqual(str(self.tag), 'Test Tag')
+        self.assertEqual(self.tag.entries.count(), 0)
+        self.assertQuerySetEqual(self.tag.entries.all(), [])

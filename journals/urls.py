@@ -1,12 +1,13 @@
 """
 journals/urls
 """
-from rest_framework.routers import SimpleRouter
+from rest_framework.routers import DefaultRouter
 
-from .views import JournalEntryViewSet, UserViewSet
+from journals import views
 
-router = SimpleRouter()
-router.register('users', UserViewSet, basename='users')
-router.register('', JournalEntryViewSet, basename='journals')
+router = DefaultRouter()
+router.register(r'users', views.UserViewSet, basename='users')
+router.register(r'journals', views.JournalEntryViewSet, basename='journals')
+router.register(r'tags', views.TagViewSet, basename='tags')
 
 urlpatterns = router.urls
