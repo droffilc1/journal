@@ -36,8 +36,25 @@ class Tag(models.Model):
         - entries: Many-to-many relationship with JournalEntry to allow
                    multiple tags per entry.
     """
-    name = models.CharField(max_length=50)
+    tag_name = models.CharField(max_length=50)
     entries = models.ManyToManyField(JournalEntry)
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return f"{self.tag_name}"
+
+class Category(models.Model):
+    """
+    Category Model
+      Attributes:
+        - name: The name of the category.
+        - user: Foreign key linking the category to a user.
+        - entries: One-to-many relationship with JournalEntry to
+                   categorize entries
+    """
+    category_name = models.CharField(max_length=50)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    entries = models.ForeignKey(JournalEntry, on_delete=models.CASCADE,
+                                 null=True, blank=True)
+
+    def __str__(self) -> str:
+      return f"{self.category_name}"

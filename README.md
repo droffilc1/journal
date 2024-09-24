@@ -2,7 +2,7 @@
 
 #### **Project Overview**
 
-- **Purpose:** Build an API that allows users to create, manage, and organize their personal journal entries. The API will support basic CRUD operations, authentication, and tagging of entries.
+- An API that allows users to create, manage, and organize their personal journal entries. The API will support basic CRUD operations, authentication, and tagging of entries.
 
 #### **Core Features**
 
@@ -38,45 +38,100 @@
    - **Create Categories:** Users can categorize their journal entries (e.g., Work, Personal, Ideas).
    - **Assign Entries to Categories:** Users can assign entries to specific categories for better organization.
 
-#### **Models**
+## Getting Started
 
-1. **User Model**
+To get a local copy up and running you just need to follow the following steps in your terminal;
 
-   - **Attributes:**
-     - `username`: User’s name.
-     - `email`: User’s email address.
-     - `password`: User’s hashed password.
+```
+git clone "url"
+```
 
-2. **JournalEntry Model**
+where "url" (without the quotation marks) is the url to this repository.
 
-   - **Attributes:**
-     - `user`: Foreign key linking the entry to a user.
-     - `title`: Title of the journal entry.
-     - `content`: The main content of the entry.
-     - `created_at`: Timestamp of when the entry was created.
-     - `updated_at`: Timestamp of the last update.
-     - `is_draft`: Boolean indicating whether the entry is a draft or published.
+For example:
 
-3. **Tag Model**
+```shell
+git clone https://github.com/droffilc1/journal.git
+```
 
-   - **Attributes:**
-     - `name`: The name of the tag.
-     - `entries`: Many-to-many relationship with `JournalEntry` to allow multiple tags per entry.
+Here you're copying the contents of the journal repository on GitHub to your computer.
 
-4. **Category Model**
+Change to the repository directory on your computer and run the app (if you are not already there):
 
-   - **Attributes:**
-     - `name`: The name of the category.
-     - `user`: Foreign key linking the category to a user.
-     - `entries`: One-to-many relationship with `JournalEntry` to categorize entries.
+```shell
+cd journal
+```
 
-#### **APIs to Implement**
+Activate a virtual environment:
+
+- Windows:
+
+```shell
+venv\Scripts\activate
+```
+- Mac/Linux:
+```shell
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```shell
+python3 install -r requirements.txt
+```
+
+Run the application:
+
+```shell
+python3 manage.py runserver
+```
+
+### Steps to Run the Docker Container
+
+[](https://github.com/droffilc1/journal?tab=readme-ov-file#steps-to-run-the-docker-container)
+
+1. **Pull the Docker Image**
+    
+    Pull the Docker image from DockerHub:
+    
+    ```shell
+    docker pull droffilc1/journal:latest
+    ```
+    
+2. **Run the Docker Container**
+    
+    Run the container in detached mode, mapping port 8080 on your local machine to port 8080 in the container:
+    
+    ```shell
+    docker run -dp 8080:8080 --name journal droffilc1/journal:latest
+    ```
+    
+3. **Check Running Containers**
+    
+    Verify that the container is running:
+    
+    ```shell
+    docker ps
+    ```
+    
+    You should see the `journal` container listed.
+    
+4. **Access the Application**
+    
+    Open a web browser and navigate to:
+    
+    ```shell
+    http://localhost:8080
+    ```
+    
+    You should see the journal application running.
+
+#### **APIs Endpoints**
 
 1. **User Authentication**
 
-   - **Register:** POST `/api/register/`
-   - **Login:** POST `/api/login/`
-   - **Token Authentication:** Use Django Rest Framework’s token authentication.
+   - **Register:** POST `/api/v1/dj-rest-auth/register/`
+   - **Login:** POST `/api/v1/dj-rest-auth/login/`
 
 2. **Journal Entries**
 

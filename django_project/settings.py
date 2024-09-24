@@ -79,7 +79,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -168,7 +168,7 @@ REST_FRAMEWORK = {
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Personal Journal API Project',
+    'TITLE': 'Personal Journal API',
     'DESCRIPTION': 'A personal journal API that allows users to create, manage, and organize their personal journal entries.',
     # OTHER SETTINGS
 }
